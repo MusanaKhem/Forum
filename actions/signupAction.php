@@ -26,8 +26,15 @@ session_start;
 			$getInfosOfThisUserReq = $bdd->prepare('SELECT id, email, lastname, firstname, pseudo, mdp FROM users WHERE email = ? AND  lastname = ? AND  firstname = ? AND  pseudo = ? AND  mdp = ?');
 			$getInfosOfThisUserReq->execute(array('$user_email, $user_lastname, $user_firstname, $user_pseudo, $user_password'));
 
-			$usersInfos = $bdd
+			$usersInfos = $getInfosOfThisUserReq->fetch();
 
+			$_SESSION['auth'] = true;
+			$_SESSION['id'] = $usersInfos['id'];
+			$_SESSION['email'] = $usersInfos['email'];
+			$_SESSION['lastname'] = $usersInfos['lastname'];
+			$_SESSION['firstname'] = $usersInfos['firstname'];
+			$_SESSION['pseudo'] = $usersInfos['pseudo'];
+			$_SESSION['mdp'] = $usersInfos['mdp'];
 
 
 		}else{
