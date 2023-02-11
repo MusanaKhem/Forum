@@ -1,4 +1,5 @@
 <?php
+session_start;
 	require('actions/database.php');
 
 	if(isset($_POST['validate'])){
@@ -10,7 +11,7 @@
 		$user_email = htmlspecialchars($_POST['email']);
 		$user_pseudo = htmlspecialchars($_POST['pseudo']);	
 		$user_lastname = htmlspecialchars($_POST['lastname']);		
-		$user_fisrtname = htmlspecialchars($_POST['firstname']);		
+		$user_firstname = htmlspecialchars($_POST['firstname']);		
 		$user_password = password_hash($_POST['password'], PASSWORD_DEFAULT);			
 		
 		//We verify if the user already exists in the database
@@ -22,12 +23,19 @@
 			$insertUserOnWebsite = $bdd->prepare('INSERT INTO users(email, pseudo, lastname, firstname, mdp)VALUES(?, ?, ?, ?, ?)');
 			$insertUserOnWebsite->execute(array('$user_email, $user_pseudo, $user_lastname, $user_firstname, $user_password'));
 
+			$getInfosOfThisUserReq = $bdd->prepare('SELECT id FROM users WHERE email = ? AND  lastname = ? AND  firstname = ? AND  pseudo = ? AND  mdp = ?');
+			$getInfosOfThisUserReq->execute(array('$user_email, $user_lastname, $user_firstname, $user_pseudo, $user_password'));
+
+
+
+
+
 		}else{
-			$errorMsg = "L'utilisateur existe déjà sur le site";
+			$errorMsg = "This user already on the website";
 		}
 
 		}else{
-		$errorMsg = "Veuillez compléter tous les champs !";
+		$errorMsg = "Please complete all fields !";
 		}
 	}
 ?>
