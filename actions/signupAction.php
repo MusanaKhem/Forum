@@ -1,14 +1,13 @@
 <?php
-session_start;
 	require('actions/database.php');
 
+	// Forms validate
 	if(isset($_POST['validate'])){
 		
 		//We verify if the use have correctly complete all reserved spaces
-		if(!empty($_POST['email']) AND !empty($_POST['pseudo']) AND !empty($_POST['lastname']) AND !empty($_POST['firstname']) AND !empty($_POST['password']) AND !empty($_POST['checkbox'])){
+		if(!empty($_POST['pseudo']) AND !empty($_POST['lastname']) AND !empty($_POST['firstname']) AND !empty($_POST['password'])){
 
 		//Here user's data enter by user to sign up on website
-		$user_email = htmlspecialchars($_POST['email']);
 		$user_pseudo = htmlspecialchars($_POST['pseudo']);	
 		$user_lastname = htmlspecialchars($_POST['lastname']);		
 		$user_firstname = htmlspecialchars($_POST['firstname']);		
@@ -22,33 +21,34 @@ session_start;
 		if($checkIfUserAlreadyExists->rowCount() == 0){
 
 			// Insert user (new user's data) in BDD
-			$insertUserOnWebsite = $bdd->prepare('INSERT INTO users(email, pseudo, lastname, firstname, mdp)VALUES(?, ?, ?, ?, ?)');
-			$insertUserOnWebsite->execute(array('$user_email, $user_pseudo, $user_lastname, $user_firstname, $user_password'));
+			$insertUserOnWebsite = $bdd->prepare('INSERT INTO users(pseudo, lastname, firstname, mdp)VALUES(?, ?, ?, ?)');
+			$insertUserOnWebsite->execute(array('$user_pseudo, $user_lastname, $user_firstname, $user_password'));
 
 			// Recover user's infos (user who is already on the database)
-			$getInfosOfThisUserReq = $bdd->prepare('SELECT id, email, lastname, firstname, pseudo, mdp FROM users WHERE email = ? AND  lastname = ? AND  firstname = ? AND  pseudo = ? AND  mdp = ?');
-			$getInfosOfThisUserReq->execute(array('$user_email, $user_lastname, $user_firstname, $user_pseudo, $user_password'));
+			$getInfosOfThisUserReq = $bdd->prepare('SELECT id, lastname, firstname, pseudo FROM users WHERE email = ? AND  lastname = ? AND  firstname = ? AND  pseudo = ?');
+			$getInfosOfThisUserReq->execute(array('$user_lastname, $user_firstname, $user_pseudo'));
 
 			// Authenticate user on website and recover his data
 			$usersInfos = $getInfosOfThisUserReq->fetch();
 
 			$_SESSION['auth'] = true;
 			$_SESSION['id'] = $usersInfos['id'];
-			$_SESSION['email'] = $usersInfos['email'];
 			$_SESSION['lastname'] = $usersInfos['lastname'];
 			$_SESSION['firstname'] = $usersInfos['firstname'];
 			$_SESSION['pseudo'] = $usersInfos['pseudo'];
-			$_SESSION['mdp'] = $usersInfos['mdp'];
+
+
+			// Redirected user to the home page
+			header('Location: index.php');
 
 		// Error message if new user "X" choose a same pseudo of another user "Y" (when user "Y" is already register in the database)
 		}else{
-			$errorMsg = "This user already on the website";
+			$errorMsg = "This user already exists on the website";
 		}
 
-		// Error message if new user didn't complete all fields
-		}else{
+	// Error message if new user didn't complete all fields
+	}else{
 		$errorMsg = "Please complete all fields !";
-		}
 	}
-?>
+}
 
