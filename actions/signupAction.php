@@ -13,6 +13,7 @@ session_start;
 		$user_lastname = htmlspecialchars($_POST['lastname']);		
 		$user_firstname = htmlspecialchars($_POST['firstname']);		
 		$user_password = password_hash($_POST['password'], PASSWORD_DEFAULT);			
+	
 		
 		//We verify if the user already exists in the database
 		$checkIfUserAlreadyExists = $bdd->prepare('SELECT pseudo FROM users WHERE pseudo = ?');
@@ -20,12 +21,15 @@ session_start;
 
 		if($checkIfUserAlreadyExists->rowCount() == 0){
 
+			// Insert user in BDD
 			$insertUserOnWebsite = $bdd->prepare('INSERT INTO users(email, pseudo, lastname, firstname, mdp)VALUES(?, ?, ?, ?, ?)');
 			$insertUserOnWebsite->execute(array('$user_email, $user_pseudo, $user_lastname, $user_firstname, $user_password'));
 
+			// Get infos about user
 			$getInfosOfThisUserReq = $bdd->prepare('SELECT id, email, lastname, firstname, pseudo, mdp FROM users WHERE email = ? AND  lastname = ? AND  firstname = ? AND  pseudo = ? AND  mdp = ?');
 			$getInfosOfThisUserReq->execute(array('$user_email, $user_lastname, $user_firstname, $user_pseudo, $user_password'));
 
+			// Verify user's session's state
 			$usersInfos = $getInfosOfThisUserReq->fetch();
 
 			$_SESSION['auth'] = true;
@@ -36,11 +40,12 @@ session_start;
 			$_SESSION['pseudo'] = $usersInfos['pseudo'];
 			$_SESSION['mdp'] = $usersInfos['mdp'];
 
-
+		// Error message if new user choose a same pseudo
 		}else{
 			$errorMsg = "This user already on the website";
 		}
 
+		// Error message if new user didn't complete all fields
 		}else{
 		$errorMsg = "Please complete all fields !";
 		}
