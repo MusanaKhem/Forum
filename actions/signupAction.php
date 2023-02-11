@@ -40,7 +40,7 @@ session_start;
 			$_SESSION['pseudo'] = $usersInfos['pseudo'];
 			$_SESSION['mdp'] = $usersInfos['mdp'];
 
-		// Error message if new user "X" choose a same pseudo of another user "Y"
+		// Error message if new user "X" choose a same pseudo of another user "Y" (when user "Y" is already register in the database)
 		}else{
 			$errorMsg = "This user already on the website";
 		}
