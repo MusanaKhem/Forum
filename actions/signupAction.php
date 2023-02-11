@@ -21,15 +21,15 @@ session_start;
 
 		if($checkIfUserAlreadyExists->rowCount() == 0){
 
-			// Insert user in BDD
+			// Insert user (new user's data) in BDD
 			$insertUserOnWebsite = $bdd->prepare('INSERT INTO users(email, pseudo, lastname, firstname, mdp)VALUES(?, ?, ?, ?, ?)');
 			$insertUserOnWebsite->execute(array('$user_email, $user_pseudo, $user_lastname, $user_firstname, $user_password'));
 
-			// Get infos about user
+			// Recover user's infos (user who is already on the data)
 			$getInfosOfThisUserReq = $bdd->prepare('SELECT id, email, lastname, firstname, pseudo, mdp FROM users WHERE email = ? AND  lastname = ? AND  firstname = ? AND  pseudo = ? AND  mdp = ?');
 			$getInfosOfThisUserReq->execute(array('$user_email, $user_lastname, $user_firstname, $user_pseudo, $user_password'));
 
-			// Verify user's session's state
+			// Authenticate user on website and recover his data
 			$usersInfos = $getInfosOfThisUserReq->fetch();
 
 			$_SESSION['auth'] = true;
@@ -51,3 +51,4 @@ session_start;
 		}
 	}
 ?>
+
