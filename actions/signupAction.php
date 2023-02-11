@@ -25,7 +25,7 @@ session_start;
 			$insertUserOnWebsite = $bdd->prepare('INSERT INTO users(email, pseudo, lastname, firstname, mdp)VALUES(?, ?, ?, ?, ?)');
 			$insertUserOnWebsite->execute(array('$user_email, $user_pseudo, $user_lastname, $user_firstname, $user_password'));
 
-			// Recover user's infos (user who is already on the data)
+			// Recover user's infos (user who is already on the database)
 			$getInfosOfThisUserReq = $bdd->prepare('SELECT id, email, lastname, firstname, pseudo, mdp FROM users WHERE email = ? AND  lastname = ? AND  firstname = ? AND  pseudo = ? AND  mdp = ?');
 			$getInfosOfThisUserReq->execute(array('$user_email, $user_lastname, $user_firstname, $user_pseudo, $user_password'));
 
@@ -40,7 +40,7 @@ session_start;
 			$_SESSION['pseudo'] = $usersInfos['pseudo'];
 			$_SESSION['mdp'] = $usersInfos['mdp'];
 
-		// Error message if new user choose a same pseudo
+		// Error message if new user "X" choose a same pseudo of another user "Y"
 		}else{
 			$errorMsg = "This user already on the website";
 		}
