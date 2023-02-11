@@ -14,29 +14,25 @@
     	<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 	</div>
 
-
   	<div class="mb-3">
     	<label for="exampleInputPseudo" class="form-label">Pseudo</label>
-    	<input type="text" class="form-control" name="pseudo" id="exampleInputPseudo" aria-describedby="emailHelp">
+    	<input type="text" class="form-control" name="pseudo" id="exampleInputPseudo" aria-describedby="pseudoHelp">
   	</div>
 
-
 	<div class="mb-3">
-		<label for="exampleInputName" class="form-label">Name</label>
-		<input type="text" class="form-control" name="lastname" id="exampleInputName" aria-describedby="emailHelp">
+		<label for="exampleInputLastname" class="form-label">Name</label>
+		<input type="text" class="form-control" name="lastname" id="exampleInputLastName">
 	</div>
 
 	<div class="mb-3">
 		<label for="exampleInputFirstname" class="form-label">Firstname</label>
-		<input type="text" class="form-control" name="firstname" id="exampleInputFirstname" aria-describedby="emailHelp">
+		<input type="text" class="form-control" name="firstname" id="exampleInputFirstname">
 	</div>  
-
 
 	<div class="mb-3">
 		<label for="exampleInputPassword1" class="form-label">Password</label>
-		<input type="password" class="form-control" name="password" id="exampleInputPassword1">
+		<input type="password" class="form-control" name="mdp" id="exampleInputPassword1">
 	</div>
-
 
 	<div class="mb-3 form-check">
 		<input type="checkbox" class="form-check-input" name="checkbox" id="exampleCheck1">
