@@ -5,13 +5,13 @@ require('actions/database.php');
 if(isset($_POST['validate'])){
 		
 	//We verify if the use have correctly complete all reserved spaces
-	if(!empty($_POST['pseudo']) AND !empty($_POST['lastname']) AND !empty($_POST['firstname']) AND !empty($_POST['password'])){
+	if(!empty($_POST['Pseudo']) AND !empty($_POST['Lastname']) AND !empty($_POST['Firstname']) AND !empty($_POST['Password'])){
 
 		//Here user's data enter by user to sign up on website
-		$user_pseudo = htmlspecialchars($_POST['pseudo']);	
-		$user_lastname = htmlspecialchars($_POST['lastname']);		
-		$user_firstname = htmlspecialchars($_POST['firstname']);		
-		$user_password = password_hash($_POST['password'], PASSWORD_DEFAULT);			
+		$user_pseudo = htmlspecialchars($_POST['Pseudo']);	
+		$user_lastname = htmlspecialchars($_POST['Lastname']);		
+		$user_firstname = htmlspecialchars($_POST['Firstname']);		
+		$user_password = password_hash($_POST['Password'], PASSWORD_DEFAULT);			
 	
 		
 		//We verify if the user already exists in the database

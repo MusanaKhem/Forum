@@ -28,10 +28,6 @@
 			<input type="password" class="form-control" name="password">
 		</div>
 
-		<div class="mb-3 form-check">
-			<input type="checkbox" class="form-check-input" name="checkbox">
-			<label class="form-check-label" for="exampleCheck1">Check me out</label>
-		</div>
 	<button type="submit" class="btn btn-primary" name="validate">S'inscrire</button>
 	</form>
 
