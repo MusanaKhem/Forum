@@ -26,7 +26,7 @@
 
 			// Recover user's infos (user who is already on the database)
 			$getInfosOfThisUserReq = $bdd->prepare('SELECT id, lastname, firstname, pseudo FROM users WHERE email = ? AND  lastname = ? AND  firstname = ? AND  pseudo = ?');
-			$getInfosOfThisUserReq->execute(array('$user_lastname, $user_firstname, $user_pseudo'));
+			$getInfosOfThisUserReq->execute(array($user_lastname, $user_firstname, $user_pseudo));
 
 			// Authenticate user on website and recover his data
 			$usersInfos = $getInfosOfThisUserReq->fetch();
