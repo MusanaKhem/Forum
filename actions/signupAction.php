@@ -22,7 +22,7 @@
 
 			// Insert user (new user's data) in BDD
 			$insertUserOnWebsite = $bdd->prepare('INSERT INTO users(pseudo, lastname, firstname, mdp)VALUES(?, ?, ?, ?)');
-			$insertUserOnWebsite->execute(array('$user_pseudo, $user_lastname, $user_firstname, $user_password'));
+			$insertUserOnWebsite->execute(array($user_pseudo, $user_lastname, $user_firstname, $user_password));
 
 			// Recover user's infos (user who is already on the database)
 			$getInfosOfThisUserReq = $bdd->prepare('SELECT id, lastname, firstname, pseudo FROM users WHERE email = ? AND  lastname = ? AND  firstname = ? AND  pseudo = ?');
