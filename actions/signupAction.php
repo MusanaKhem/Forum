@@ -1,11 +1,11 @@
 <?php
-	require('actions/database.php');
+require('actions/database.php');
 
-	// Forms validate
-	if(isset($_POST['validate'])){
+// Forms validate
+if(isset($_POST['validate'])){
 		
-		//We verify if the use have correctly complete all reserved spaces
-		if(!empty($_POST['pseudo']) AND !empty($_POST['lastname']) AND !empty($_POST['firstname']) AND !empty($_POST['password'])){
+	//We verify if the use have correctly complete all reserved spaces
+	if(!empty($_POST['pseudo']) AND !empty($_POST['lastname']) AND !empty($_POST['firstname']) AND !empty($_POST['password'])){
 
 		//Here user's data enter by user to sign up on website
 		$user_pseudo = htmlspecialchars($_POST['pseudo']);	
@@ -48,7 +48,6 @@
 
 	// Error message if new user didn't complete all fields
 	}else{
-		$errorMsg = "Please complete all fields !";
+		$errorMsg = "Please complete all fields ...";
 	}
 }
-
