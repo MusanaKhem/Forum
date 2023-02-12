@@ -16,7 +16,7 @@
 		
 		//We verify if the user already exists in the database
 		$checkIfUserAlreadyExists = $bdd->prepare('SELECT pseudo FROM users WHERE pseudo = ?');
-		$checkIfUserAlreadyExists->execute(array('$user_pseudo'));
+		$checkIfUserAlreadyExists->execute(array($user_pseudo));
 
 		if($checkIfUserAlreadyExists->rowCount() == 0){
 
