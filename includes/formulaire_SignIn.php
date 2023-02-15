@@ -1,5 +1,5 @@
 <form>
-    <span><p>Entrer votre adresse email</p></span>
+    <span><p>Enter your mail</p></span>
     <input type="email" name="email">
     <br>
     <input type="submit" name="envoyer">
