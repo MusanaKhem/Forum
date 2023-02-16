@@ -1,5 +1,5 @@
 <head>
-	<!-- "HEAD's part code for each website's parts when it's necessary -->
+	<!-- "HEAD's part's code for each website's parts when it's necessary -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- CSS Bootstrap 5.2.3 -->

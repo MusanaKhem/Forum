@@ -4,6 +4,8 @@
 <?php include 'includes/head.php'; ?>
 <body>
 	<br></br>
+
+    <!-- SIGN UP FORM -->
 	<form class="container" method="POST">
 
 		<?php if(isset($errorMsg)){ echo '<p>'.$errorMsg.'</p>'; } ?>
@@ -28,7 +30,10 @@
 			<input type="password" class="form-control" name="password">
 		</div>
 
-	<button type="submit" class="btn btn-primary" name="validate">Subscribe</button>
+	<button type="submit" class="btn btn-primary" name="validate">Subscribe</button><br></br>
+
+    <!-- SUBSCRIBE REDIRECTION -->
+	<a href="login.php"><p>I already have an account. I register now</p>
 	</form>
 
 </body>

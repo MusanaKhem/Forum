@@ -1,7 +1,7 @@
 <?php
 require('actions/database.php');
 
-// Forms validate
+// Forms validate SignupAction
 if(isset($_POST['validate'])){
 		
 	//We verify if the user have correctly complete all reserved spaces
@@ -14,10 +14,11 @@ if(isset($_POST['validate'])){
 		$user_password = password_hash($_POST['password'], PASSWORD_DEFAULT);			
 	
 		
-		//We verify if the user already exists in the databasewebsite and the database
+		//We verify if the user already exists in the website database
 		$checkIfUserAlreadyExists = $bdd->prepare('SELECT pseudo FROM users WHERE pseudo = ?');
 		$checkIfUserAlreadyExists->execute(array($user_pseudo));
 
+		//Verify if data were correctly getted
 		if($checkIfUserAlreadyExists->rowCount() == 0){
 
 			// Insert user (new user's data) in BDD
@@ -31,6 +32,7 @@ if(isset($_POST['validate'])){
 			// Authenticate user on website and recover his data in global's variables
 			$usersInfos = $getInfosOfThisUserReq->fetch();
 
+			//Authenticate user on website and recover his data from the website database
 			$_SESSION['auth'] = true;
 			$_SESSION['id'] = $usersInfos['id'];
 			$_SESSION['lastname'] = $usersInfos['lastname'];
@@ -46,7 +48,7 @@ if(isset($_POST['validate'])){
 			$errorMsg = "This user already exists on the website";
 		}
 
-		// Error message if new user didn't complete all fields
+	// Error message if new user didn't complete all fields
 	}else{
 		$errorMsg = "Please complete all fields ...";
 	}
