@@ -24,11 +24,11 @@ if(isset($_POST['validate'])){
                 $question_pseudo_author)
         );
 
-        $successMsg = "Your question has been already publish on the website";
+        $successMsg = "Your question has been correctly published on the website";
 
     }else{
         $errorMsg = "Please complete all the fields...";
     }
-
+    
 }
 

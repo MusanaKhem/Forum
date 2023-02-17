@@ -35,7 +35,7 @@
             <textarea type="text" class="form-control" name="content"></textarea>
         </div>  
 
-    <button type="submit" class="btn btn-primary" name="validate">Publier la question</button><br></br>
+    <button type="submit" class="btn btn-primary" name="validate">Publish the question</button><br></br>
 
 	</form>
 

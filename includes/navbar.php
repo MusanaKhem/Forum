@@ -11,7 +11,7 @@
           <a class="nav-link active" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="index.php">All questions</a>
+          <a class="nav-link active" href="my-questions.php">All questions</a>
         </li>        
         <li class="nav-item">
           <a class="nav-link active" href="publish-question.php">Add a question</a>
