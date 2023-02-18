@@ -20,7 +20,7 @@
                         <!-- Card title - php dynamics display -->
                         <h5 class="card-header">
                         Le <?php echo $question['publish_datetime']; ?>
-                        <h7>-- <?php echo $question['title']; ?></h7>
+                        <h7 style="color: green">-><?php echo $question['title']; ?></h7>
                         </h5>
                         
                         <!-- Card body -->
