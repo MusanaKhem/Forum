@@ -1,6 +1,5 @@
-<?php 
-
-    require('actions/questions/myQuestionsAction.php'); 
+<?php
+    require('actions/questions/myQuestionsAction.php');
     require('actions/users/securityAction.php');
 ?>
 
@@ -11,23 +10,35 @@
     <?php include 'includes/navbar.php'; ?>
     <br></br>
     <div class="container">
-        <?php
-            while($question = $getAllMyQuestions->fetch()){
-                ?>
-                <div class="card">
-                    <h5 class="card-header">
-                        <?= $question('title'); ?>
-                    </h5>
-                    <div class="card-body">
-                        <p class="card-text">
-                            <?= $question('explanation'); ?></p>
-                        <a href="#" class="btn btn-primary">Access to question content</a>
-                        <a href="#" class="btn btn-primary">Modify the article</a>
+        <p>Below is the complete list of all the questions you asked.</p>
+        <div class="container">
+            <?php
+                while($question = $getAllMyQuestions->fetch()){
+                    ?>
+                    <!-- Bootstrap lass's card -->
+                    <div class="card">
+                        <!-- Card title - php dynamics display -->
+                        <h5 class="card-header">
+                        Le <?php echo $question['publish_datetime']; ?>
+                        <h7>-- <?php echo $question['title']; ?></h7>
+                        </h5>
+                        
+                        <!-- Card body -->
+                        <div class="card-body">
+                            <!-- Card description - php dynamics display -->
+                            <p class="card-text">
+                                <?php echo $question['explanation']; ?>
+                            </p>
+                            <!-- Button to access all user's questions -->
+                            <a href="#" class="btn btn-primary">Access to question content</a>
+                            <!-- Button to modify user's questions -->
+                            <a href="#" class="btn btn-warning">Modify the article</a>
+                        </div>
                     </div>
-                </div>
-                <?php
-            }
-        ?>
-    </div>
+                    <?php
+                }
+            ?>
+        </div>
+    </div class="container">
 </body>
 </html> 

@@ -1,0 +1,8 @@
+1-> Create inscription and connection systems
+2-> Create publish question system
+3-> Create users' questions display
+4-> Create modify question system
+5-> Create delete question system
+6-> Create search and display questions system
+7-> Create answering question system
+8-> Create a system to display user profile (with all its publications)
