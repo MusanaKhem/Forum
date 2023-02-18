@@ -30,6 +30,5 @@ if(isset($_POST['validate'])){
     }else{
         $errorMsg = "Please complete all the fields...";
     }
-    
 }
 

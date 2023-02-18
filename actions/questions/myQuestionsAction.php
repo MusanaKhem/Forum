@@ -1,6 +1,6 @@
 <?php
 
-require('actions/database.php'); //
+require('actions/database.php');
 
-$getAllMyQuestions = $bdd->prepare('SELECT id, titre, explanation FROM questions WHERE id_author = ?');
+$getAllMyQuestions = $bdd->prepare('SELECT id, title, explanation, publish_datetime FROM questions WHERE id_author = ? ORDER BY id DESC');
 $getAllMyQuestions->execute(array($_SESSION['id']));
