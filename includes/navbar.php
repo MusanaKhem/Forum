@@ -11,14 +11,17 @@
           <a class="nav-link active" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="index.php">All questions</a>
+          <a class="nav-link active" href="index.php">Dashboard</a>
         </li>        
         <li class="nav-item">
           <a class="nav-link active" href="publish-question.php">Add a question</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="my-questions.php">My questions</a>
-        </li>           
+        </li>      
+        <li class="nav-item">
+          <a class="nav-link active" href="actions/users/logoutAction.php">Log out</a>
+        </li>                  
       </ul>
     </div>
   </div>
