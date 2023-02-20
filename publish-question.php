@@ -1,6 +1,6 @@
 <?php
     
-    require('actions/users/securityAction.php');
+    session_start();
     
     require('actions/questions/publishQuestionAction.php');
 
