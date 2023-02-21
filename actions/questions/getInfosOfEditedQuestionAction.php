@@ -14,15 +14,15 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
     // Recover data question
     if($checkIfQuestionExists->rowCount() > 0){
         // Recover data in an array
-        $questionInfos = $checkIfQuestionExists->fetch();
+        $questionsInfos = $checkIfQuestionExists->fetch();
 
         // Verify if question author id matches session id
-        if($questionInfos['id_author'] == $_SESSION['id']){
+        if($questionsInfos['id_author'] == $_SESSION['id']){
 
             // Database question infos which are recovered 
-            $question_title = $questionInfos['title'];
-            $question_explanation = $questionInfos['explanation'];
-            $question_content = $questionInfos['content'];
+            $question_title = $questionsInfos['title'];
+            $question_explanation = $questionsInfos['explanation'];
+            $question_content = $questionsInfos['content'];
 
             $question_explanation = str_replace('<br />', '', $question_explanation);
             $question_content = str_replace('<br />', '', $question_content);

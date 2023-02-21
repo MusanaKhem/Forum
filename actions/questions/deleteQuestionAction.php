@@ -19,8 +19,8 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
     // Recover data question
     if($checkIfQuestionExists->rowCount() > 0){
         // Recover data in an array
-        $userInfos = $checkIfQuestionExists->fetch();
-        if($userInfos['id_author'] == $_SESSION['id']){
+        $questionInfos = $checkIfQuestionExists->fetch();
+        if($questionInfos['id_author'] == $_SESSION['id']){
 
             $deleteThisQuestion = $bdd->prepare('DELETE FROM questions WHERE id = ?');
             $deleteThisQuestion->execute(array($idOfTheQuestion));
