@@ -1,10 +1,14 @@
 <?php
-
+// Session start
 session_start();
+
+// Verify if user is authenticated
 if(!isset($_SESSION['auth'])){
+    // If user is not authenticated then user is redirected to login page
     header('Location: ../../login.php');
 }
 
+// Call out database
 require('../database.php');
 
 // Verify if question's id is correctly placed as a parameter in the URL

@@ -1,5 +1,5 @@
 <?php
-
+// Call out database
 require('actions/database.php');
 
 // Verify if question's id is correctly placed as a parameter in the URL

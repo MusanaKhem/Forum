@@ -1,5 +1,5 @@
 <?php 
-
+// Call out database
 require('actions/database.php');
 
 // Validate the form

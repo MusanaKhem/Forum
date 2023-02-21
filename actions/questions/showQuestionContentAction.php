@@ -1,5 +1,5 @@
 <?php
-//USE THE DATABASE
+// Call out database
 require('actions/database.php');
 
 //Verify if id is correctly entered in URL

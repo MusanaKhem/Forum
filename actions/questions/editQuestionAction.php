@@ -1,5 +1,5 @@
 <?php
-
+// Call out database
 require('actions/database.php');
 
 //Verify if validate button has been correctly push on by user
