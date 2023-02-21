@@ -21,10 +21,12 @@
                     <!-- Bootstrap lass's card -->
                     <div class="card">
                         <!-- Card title - php dynamics display -->
-                        <h5 class="card-header">
-                        Le <?= $question['publish_datetime']; ?>
-                        <h7 style="color: green">-><?php echo $question['title']; ?></h7>
-                        </h5>
+                        <h6 class="card-header">
+                        The <?= $question['publish_datetime']; ?> ; you posted the untitled question : 
+                        <a href="question.php?id=<?= $question['id']; ?>">
+                            <?= $question['title']; ?>
+                        </a>
+                        </h6>
                         
                         <!-- Card body -->
                         <div class="card-body">
@@ -32,8 +34,9 @@
                             <p class="card-text">
                                 <?= $question['explanation']; ?>
                             </p>
+                            
                             <!-- Button to access all user's questions -->
-                            <a href="#" class="btn btn-primary">Access to question content</a>
+                            <a href="question.php?id=<?= $question['id']; ?>" class="btn btn-primary">Access to question content</a>
                             <!-- Button to modify user's questions -->
                             <a href="edit-question.php?id=<?= $question['id']; ?>" class="btn btn-warning">Modify the question</a>
                             <a href="actions/questions/deleteQuestionAction.php?id=<?= $question['id']; ?>" class="btn btn-danger">Delete the question</a>
