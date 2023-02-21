@@ -39,8 +39,8 @@
                     <div class="card-body">
                         <?= $question['explanation']; ?>
                     </div>
-                    <div class="card-footer" style="color: darkred">
-                        Published by <?= $question['pseudo_author']; ?>, le <?= $question['publish_datetime']; ?>
+                    <div class="card-footer"><span style="color: darkred">
+                        Published by </span> <?= $question['pseudo_author']; ?><span style="color: darkred">, le </span><?= $question['publish_datetime']; ?>
                     </div>
                 </div>
                 <br>

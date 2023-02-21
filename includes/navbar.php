@@ -11,7 +11,7 @@
           <a class="nav-link active" href="index.php">Published questions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="index.php">Dashboard</a>
+          <a class="nav-link active" href="dashboard.php">Dashboard</a>
         </li>
         <?php
           if(isset($_SESSION['auth'])){
