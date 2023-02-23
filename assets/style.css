@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+/* Start - WEBSITE COLOR - OK */
+:root{
+    --main-color:#d3ad7f;
+    --black:#13131a;
+    --bg:#010103;
+    --border:.1rem solid rgba(255,255,255,.3);
+}
+/* End - WEBSITE COLOR - OK */
+
+
+    /* Start - Navigation menu borders - OK */
+    .header .navbar a{
+        margin:0 1rem;
+        font-size: 1.6rem;
+        color:#fff;
+    }
+    
+    .header .navbar a:hover{
+        color:var(--main-color);
+        border-bottom: .1rem solid var(--main-color);
+        padding-bottom: .5rem;
+    }
+    /* End - Navigation menu borders - OK */

@@ -1,10 +1,11 @@
-<?php 
+<?php
     session_start();
     require('actions/questions/showAllQuestionAction.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php include 'includes/head.php'; ?>
+
 <body>
     <?php include 'includes/navbar.php'; ?>
     <br></br>
@@ -40,7 +41,7 @@
                         <?= $question['explanation']; ?>
                     </div>
                     <div class="card-footer"><span style="color: darkred">
-                        Published by </span> <?= $question['pseudo_author']; ?><span style="color: darkred">, le </span><?= $question['publish_datetime']; ?>
+                        Published by </span><a href="profile.php?id=<?= $question['id_author']; ?>"><?= $question['pseudo_author']; ?></a>, <span style="color: darkred"> le </span><?= $question['publish_datetime']; ?>
                     </div>
                 </div>
                 <br>
